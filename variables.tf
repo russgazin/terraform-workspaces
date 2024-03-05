@@ -26,6 +26,10 @@ variable "alb_sgrp_rules" {
 
 }
 
+variable "rds_sgrp_rules" {
+
+}
+
 variable "instance_type" {
 
 }

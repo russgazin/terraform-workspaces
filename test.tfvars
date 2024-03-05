@@ -12,8 +12,8 @@ subnet_for_each = {
 natgw_tag = "test_natgw"
 
 ec2_sgrp_rules = {
-  ssh_from_www    = ["ingress", 22, 22, "TCP", "0.0.0.0/0"]
-  http_from_www   = ["ingress", 80, 80, "TCP", "sg-0e70298af22d8a882"]
+  ssh_from_www = ["ingress", 22, 22, "TCP", "0.0.0.0/0"]
+  #http_from_www   = ["ingress", 80, 80, "TCP", "0.0.0.0/0"]
   outbound_to_www = ["egress", 0, 0, "-1", "0.0.0.0/0"]
 }
 
@@ -22,6 +22,11 @@ instance_type = "t2.micro"
 alb_sgrp_rules = {
   http_from_www   = ["ingress", 80, 80, "TCP", "0.0.0.0/0"]
   https_from_www  = ["ingress", 443, 443, "TCP", "0.0.0.0/0"]
+  outbound_to_www = ["egress", 0, 0, "-1", "0.0.0.0/0"]
+}
+
+rds_sgrp_rules = {
+  mysql_from_www  = ["ingress", 3306, 3306, "TCP", "0.0.0.0/0"]
   outbound_to_www = ["egress", 0, 0, "-1", "0.0.0.0/0"]
 }
 
